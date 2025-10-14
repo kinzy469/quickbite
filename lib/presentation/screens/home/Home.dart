@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quickbite/core/constants/colors.dart';
 import 'package:quickbite/presentation/screens/home/cart/cart.dart';
-import 'package:quickbite/presentation/screens/screen3.dart';
+import 'package:quickbite/presentation/screens/home/profile/profile.dart';
 import 'package:quickbite/widgets/common/icon_button.dart';
 import 'package:quickbite/widgets/home/category_card.dart';
 import 'package:quickbite/widgets/home/product_card.dart';
