@@ -1,15 +1,15 @@
 // Dummy Cart screen
 import 'package:flutter/material.dart';
-import 'package:quickbite/screens/screen1.dart';
+import 'package:quickbite/presentation/screens/home/Home.dart';
 
-class CartScreen extends StatefulWidget {
-  const CartScreen({super.key});
+class FoodHome extends StatefulWidget {
+  const FoodHome({super.key});
 
   @override
-  State<CartScreen> createState() => _CartScreen();
+  State<FoodHome> createState() => _FoodHomeState();
 }
 
-class _CartScreen extends State<CartScreen> {
+class _FoodHomeState extends State<FoodHome> {
   String selectedSize = 'Medium';
   bool addChicken = true;
   bool addMushroom = false;
