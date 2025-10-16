@@ -39,8 +39,6 @@ class CartScreen extends StatelessWidget {
 
     return SafeArea(
       child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -57,7 +55,7 @@ class CartScreen extends StatelessWidget {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 20),
+                  padding: EdgeInsets.all(10),
                   child: Column(
                     children: [
                       Row(
@@ -103,74 +101,83 @@ class CartScreen extends StatelessWidget {
               ),
 
               // Cart Items List
-              ListView.separated(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: cartItems.length,
-                separatorBuilder: (context, index) => const SizedBox(height: 16),
-                itemBuilder: (context, index) {
-                  final item = cartItems[index];
-                  return CartItemCard(
-                    image: item['image'] as String,
-                    name: item['name'] as String,
-                    price: item['price'] as String,
-                    details: item['details'] as String,
-                    quantity: item['quantity'] as int,
-                  );
-                },
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: cartItems.length,
+                  separatorBuilder: (context, index) => const SizedBox(height: 16),
+                  itemBuilder: (context, index) {
+                    final item = cartItems[index];
+                    return CartItemCard(
+                      image: item['image'] as String,
+                      name: item['name'] as String,
+                      price: item['price'] as String,
+                      details: item['details'] as String,
+                      quantity: item['quantity'] as int,
+                    );
+                  },
+                ),
               ),
 
               const SizedBox(height: 24),
 
               // Totals Section
-              Container(
+              Padding(
                 padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surface,
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Theme.of(context).colorScheme.shadow.withOpacity(0.1),
-                      blurRadius: 12,
-                      offset: const Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    _buildTotalRow(context, 'Subtotal', '\$${subtotal.toStringAsFixed(2)}'),
-                    const SizedBox(height: 8),
-                    _buildTotalRow(context, 'Tax (10%)', '\$${tax.toStringAsFixed(2)}'),
-                    const Divider(),
-                    _buildTotalRow(context, 'Total', '\$${total.toStringAsFixed(2)}', isBold: true),
-                  ],
+                child: Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.surface,
+                    borderRadius: BorderRadius.circular(16),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Theme.of(context).colorScheme.shadow.withOpacity(0.1),
+                        blurRadius: 12,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      _buildTotalRow(context, 'Subtotal', '\$${subtotal.toStringAsFixed(2)}'),
+                      const SizedBox(height: 8),
+                      _buildTotalRow(context, 'Tax (10%)', '\$${tax.toStringAsFixed(2)}'),
+                      const Divider(),
+                      _buildTotalRow(context, 'Total', '\$${total.toStringAsFixed(2)}', isBold: true),
+                    ],
+                  ),
                 ),
               ),
 
               const SizedBox(height: 24),
 
               // Checkout Button
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    print('Proceeding to checkout');
-                    // Navigate to checkout screen
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primary,
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      print('Proceeding to checkout');
+                      // Navigate to checkout screen
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.primary,
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      elevation: 0,
                     ),
-                    elevation: 0,
-                  ),
-                  child: const Text(
-                    'Checkout',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                    child: const Text(
+                      'Checkout',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -178,8 +185,7 @@ class CartScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 
   Widget _buildTotalRow(BuildContext context, String label, String value, {bool isBold = false}) {

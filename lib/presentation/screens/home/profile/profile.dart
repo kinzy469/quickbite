@@ -10,164 +10,175 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
+
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Profile Header
-              Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      AppColors.primary.withOpacity(0.05),
-                      Theme.of(context).scaffoldBackgroundColor,
-                    ],
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 20),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Profile',
-                                style: TextStyle(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.primary,
-                                  letterSpacing: -0.5,
-                                ),
-                              ),
-                              Text(
-                                'Eddy Smith',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: Theme.of(context).colorScheme.onBackground,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              IconButtonWidget(
-                                icon: Icons.edit_rounded,
-                                onPressed: () {
-                                  // Edit profile logic
-                                  print('Editing profile');
-                                },
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-
-              // Profile Picture and Info
-              Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surface,
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Theme.of(context).colorScheme.shadow.withOpacity(0.1),
-                      blurRadius: 12,
-                      offset: const Offset(0, 4),
+                 Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        AppColors.primary.withOpacity(0.05),
+                        Theme.of(context).scaffoldBackgroundColor,
+                      ],
                     ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    // Profile Image
-                    Stack(
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Column(
                       children: [
-                        CircleAvatar(
-                          radius: 50,
-                          backgroundColor: AppColors.primary.withOpacity(0.1),
-                          child: Icon(
-                            Icons.person,
-                            size: 60,
-                            color: AppColors.primary,
-                          ),
-                        ),
-                        Positioned(
-                          bottom: 0,
-                          right: 0,
-                          child: Container(
-                            padding: const EdgeInsets.all(4),
-                            decoration: const BoxDecoration(
-                              color: Colors.white,
-                              shape: BoxShape.circle,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Profile',
+                                  style: TextStyle(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold,
+                                    color: AppColors.primary,
+                                    letterSpacing: -0.5,
+                                  ),
+                                ),
+                                Text(
+                                  'Eddy Smith',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: Theme.of(context).colorScheme.onBackground,
+                                  ),
+                                ),
+                              ],
                             ),
-                            child: Icon(
-                              Icons.camera_alt,
-                              size: 20,
-                              color: AppColors.primary,
+                            Row(
+                              children: [
+                                IconButtonWidget(
+                                  icon: Icons.edit_rounded,
+                                  onPressed: () {
+                                    // Edit profile logic
+                                    print('Editing profile');
+                                  },
+                                ),
+                              ],
                             ),
-                          ),
+                          ],
                         ),
                       ],
                     ),
-                    const SizedBox(height: 16),
-                    // User Details
-                    _buildProfileDetail(context, 'Email', 'eddy@quickbite.com'),
-                    const SizedBox(height: 8),
-                    _buildProfileDetail(context, 'Phone', '+1 (555) 123-4567'),
-                    const SizedBox(height: 8),
-                    _buildProfileDetail(context, 'Address', '123 Foodie Lane, Tasty City'),
-                  ],
+                  ),
+                ),
+
+              // Profile Picture and Info
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.surface,
+                    borderRadius: BorderRadius.circular(16),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Theme.of(context).colorScheme.shadow.withOpacity(0.1),
+                        blurRadius: 12,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      // Profile Image
+                      Stack(
+                        children: [
+                          CircleAvatar(
+                            radius: 50,
+                            backgroundColor: AppColors.primary.withOpacity(0.1),
+                            child: Icon(
+                              Icons.person,
+                              size: 60,
+                              color: AppColors.primary,
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 0,
+                            right: 0,
+                            child: Container(
+                              padding: const EdgeInsets.all(4),
+                              decoration: const BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                Icons.camera_alt,
+                                size: 20,
+                                color: AppColors.primary,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+                      // User Details
+                      _buildProfileDetail(context, 'Email', 'eddy@quickbite.com'),
+                      const SizedBox(height: 8),
+                      _buildProfileDetail(context, 'Phone', '+1 (555) 123-4567'),
+                      const SizedBox(height: 8),
+                      _buildProfileDetail(context, 'Address', '123 Foodie Lane, Tasty City'),
+                    ],
+                  ),
                 ),
               ),
 
               const SizedBox(height: 24),
 
               // Stats Section
-              Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surface,
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Theme.of(context).colorScheme.shadow.withOpacity(0.1),
-                      blurRadius: 12,
-                      offset: const Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
                   children: [
-                    _buildStatCard(context, 'Orders', '12', Icons.shopping_bag),
-                    _buildStatCard(context, 'Favorites', '5', Icons.favorite),
-                    _buildStatCard(context, 'Points', '150', Icons.star),
-                  ],
-                ),
-              ),
+                    Container(
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.surface,
+                        borderRadius: BorderRadius.circular(16),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Theme.of(context).colorScheme.shadow.withOpacity(0.1),
+                            blurRadius: 12,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          _buildStatCard(context, 'Orders', '12', Icons.shopping_bag),
+                          _buildStatCard(context, 'Favorites', '5', Icons.favorite),
+                          _buildStatCard(context, 'Points', '150', Icons.star),
+                        ],
+                      ),
+                    ),
 
-              const SizedBox(height: 24),
+              SizedBox(height: 24),
 
               // Quick Actions
-              Text(
-                'Quick Actions',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).colorScheme.onBackground,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Quick Actions',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.onBackground,
+                  ),
                 ),
               ),
+              
               const SizedBox(height: 16),
               _buildActionCard(context, Icons.history, 'Order History', () {
                 print('Viewing order history');
@@ -181,7 +192,7 @@ class ProfileScreen extends StatelessWidget {
               _buildActionCard(context, Icons.help_outline, 'Help & Support', () {
                 print('Opening help');
               }),
-
+              
               const SizedBox(height: 32),
 
               // Logout Button
@@ -210,10 +221,12 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
             ],
+            ),
+          ),
+          ],
           ),
         ),
-      ),
-    );
+      );
   }
 
   Widget _buildProfileDetail(BuildContext context, String label, String value) {

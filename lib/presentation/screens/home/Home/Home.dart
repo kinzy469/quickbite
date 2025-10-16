@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:quickbite/core/constants/colors.dart';
+import 'package:quickbite/presentation/screens/home/Home/details_screen.dart';
 import 'package:quickbite/presentation/screens/home/cart/cart.dart';
 import 'package:quickbite/presentation/screens/home/profile/profile.dart';
 import 'package:quickbite/widgets/common/icon_button.dart';
-import 'package:quickbite/widgets/home/category_card.dart';
-import 'package:quickbite/widgets/home/product_card.dart';
+import 'package:quickbite/widgets/home_widget/category_card.dart';
+import 'package:quickbite/widgets/home_widget/product_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -259,7 +260,7 @@ class HomeContent extends StatelessWidget {
                             end: Alignment.bottomCenter,
                             colors: [
                               Colors.black.withOpacity(0.3),
-                              Colors.black.withOpacity(0.6),
+                              Colors.black.withOpacity(0.3),
                             ],
                           ),
                         ),
@@ -403,6 +404,20 @@ class HomeContent extends StatelessWidget {
                         name: item['name'] as String,
                         price: item['price'] as String,
                         details: item['details'] as String,
+
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => FoodDetailScreen(
+                                image: item['image'] as String,
+                                name: item['name'] as String,
+                                basePrice: item['price'] as String,
+                                details: item['details'] as String,
+                              ),
+                            ),
+                          );
+                        },
                       );
                     },
                   ),

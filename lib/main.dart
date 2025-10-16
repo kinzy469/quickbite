@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quickbite/core/constants/theme/theme.dart';
-import 'package:quickbite/presentation/screens/home/Home.dart';
+import 'package:quickbite/presentation/screens/home/Home/Home.dart';
 
 void main() {
   runApp(const QuickBite());
