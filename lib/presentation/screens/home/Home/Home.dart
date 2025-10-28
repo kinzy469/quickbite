@@ -3,6 +3,7 @@ import 'package:quickbite/core/constants/colors.dart';
 import 'package:quickbite/presentation/screens/home/Home/details_screen.dart';
 import 'package:quickbite/presentation/screens/home/cart/cart.dart';
 import 'package:quickbite/presentation/screens/home/profile/profile.dart';
+import 'package:quickbite/presentation/screens/seeall/see_all.dart';
 import 'package:quickbite/widgets/common/icon_button.dart';
 import 'package:quickbite/widgets/home_widget/category_card.dart';
 import 'package:quickbite/widgets/home_widget/product_card.dart';
@@ -361,7 +362,7 @@ class HomeContent extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          print('Navigating to See All');
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => SeeAllScreen()));
                         },
                         child: Row(
                           children: [
